@@ -146,14 +146,14 @@
 </script>
 
 <main class="max-w-full m-2">
-    <Tooltip title="ers 파일 읽기">
-        <Button variant="fill" on:click={openImport}>import ers file</Button>
+    <Tooltip title="ers 파일 가져오기">
+        <Button variant="fill" on:click={openImport}>import .ers</Button>
     </Tooltip>
     <Tooltip title="테이블 정의서 파일(erstd) 읽기">
-        <Button variant="fill" on:click={openLoad}>load</Button>
+        <Button variant="fill" on:click={openLoad}>load .erstd</Button>
     </Tooltip>
     <Tooltip title="테이블 정의서 파일(erstd) 쓰기">
-        <Button variant="fill" on:click={save}>save</Button>
+        <Button variant="fill" on:click={save}>save .erstd</Button>
     </Tooltip>
     <div style="display:none">
         <input type="file" name="file" bind:this={inputImport} on:change={importErs} accept=".ers"/>
