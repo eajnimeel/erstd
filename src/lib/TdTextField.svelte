@@ -6,10 +6,11 @@
     let isEditable = false;
     let el;
 
-    const enableEdit = async () => {
+    const enableEdit = async (event) => {
         isEditable = true;
         await tick(); // 다음 렌더링 사이클을 기다립니다.
-        el.focus();
+        console.log(event.target)
+        event.target.querySelector('textarea').focus();
     }
     const disableEdit = () => {
         isEditable = false;
@@ -18,7 +19,8 @@
 </script>
 <td on:dblclick={enableEdit}>
     {#if isEditable}
-        <TextField bind:value multiline actions={(node) => [autoHeight(node)]} on:blur={disableEdit} autofocus/>
+        <TextField bind:value multiline autofocus clearable actions={(node) => [autoHeight(node)]} on:blur={disableEdit}
+                   bind:this={el}/>
     {:else}
         {@html value ? value.replace('\n', '<br>') : ''}
     {/if}

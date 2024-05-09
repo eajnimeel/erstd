@@ -1,15 +1,11 @@
 <script>
-    import {Input, TextField} from 'svelte-ux';
-    import {tick} from "svelte";
+    import {Input} from 'svelte-ux';
 
     export let value = '';
     let isEditable = false;
-    let el;
 
     const enableEdit = async () => {
         isEditable = true;
-        await tick(); // 다음 렌더링 사이클을 기다립니다.
-        el.focus();
     }
     const disableEdit = () => {
         isEditable = false;
